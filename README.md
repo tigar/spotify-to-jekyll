@@ -5,11 +5,11 @@ Turn a Spotify playlist into a Jekyll post.
 ## Set up
 
 1. Create a [Spotify app](https://developer.spotify.com/dashboard/applications).
-2. From terminal, export the following variables using the information from your Spotify app:
+2. Create a new `.env` file and add the following variables using the info from the Spotify app you created:
 ```
-echo "export SpotifyClientID=0000ffff0000ffff0000ffff0000ffff0000ffff" >> ~/.bash_profile
-echo "export SpotifyClientSecret=0000ffff0000ffff0000ffff0000ffff0000ffff" >> ~/.bash_profile
-echo "export SpotifyUser=0000ffff0000" >> ~/.bash_profile
+SpotifyClientID=0000ffff0000ffff0000ffff0000ffff0000ffff
+SpotifyClientSecret=0000ffff0000ffff0000ffff0000ffff0000ffff
+SpotifyUser=0000ffff0000
 ```
 
 Install the app:
