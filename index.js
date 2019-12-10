@@ -26,7 +26,7 @@ module.exports.getPlaylist = () => {
     clientSecret: process.env.SpotifyClientSecret
   });
 
-  console.log(spotifyApi)
+  console.log(spotifyApi);
 
   return spotifyApi
     .clientCredentialsGrant()
@@ -70,9 +70,7 @@ module.exports.getTracks = tracks => {
 module.exports.createPost = data => {
   return new Promise((resolve, reject) => {
     fs.writeFile(
-      `playlists/_posts/${moment().format('YYYY-MM-DD')}-${
-        data.formatted_name
-      }.md`,
+      `_posts/${moment().format('YYYY-MM-DD')}-${data.formatted_name}.md`,
       module.exports.buildPost(data),
       err => {
         if (err) return reject(err);
@@ -83,11 +81,7 @@ module.exports.createPost = data => {
 };
 
 module.exports.buildPost = data => {
-  let contents = `---\ntitle: ${data.name}\nspotify: ${
-    data.url
-  }\nimage: img/playlists/${data.formatted_name}.png\npermalink: /playlists/${
-    data.formatted_name
-  }/\n---\n\n[Listen on Spotify](${data.url})\n\n`;
+  let contents = `---\ntitle: ${data.name}\nspotify: ${data.url}\nimage: img/playlists/${data.formatted_name}.png\npermalink: /playlists/${data.formatted_name}/\n---\n\n[Listen on Spotify](${data.url})\n\n`;
   data.tracks.map(track => {
     contents += `* ${track.name}, ${track.artist}\n`;
   });
