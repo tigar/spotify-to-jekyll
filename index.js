@@ -3,6 +3,8 @@ const fs = require('fs');
 const moment = require('moment');
 const Jimp = require('jimp');
 const SpotifyWebApi = require('spotify-web-api-node');
+const dotenv = require('dotenv');
+dotenv.config();
 
 module.exports.playlist = (event, context, callback) => {
   module.exports
@@ -23,6 +25,8 @@ module.exports.getPlaylist = () => {
     clientId: process.env.SpotifyClientID,
     clientSecret: process.env.SpotifyClientSecret
   });
+
+  console.log(spotifyApi)
 
   return spotifyApi
     .clientCredentialsGrant()
